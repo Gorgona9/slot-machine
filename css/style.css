@@ -51,21 +51,21 @@ blockquote, q {
 
 html , body
 {
-    height:100%;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    /*font-family: 'Slackey';*/
     margin: 0;
 }
 
-#game{
-    width: 100%;
-    display:block;
-    background-color:#cdcdcd;
+body {
     background-image:-moz-linear-gradient(#bbb,#eee,#bbb);
     background-image: url("../img/city-casino.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+#game{
+    width: 100%;
+    display:block;
 }
 
 #container
@@ -629,7 +629,7 @@ a:focus {
     border-radius: 2px;
 }
 
-.slots-main__drums-section {
+.slots-main__drums-section-wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -650,7 +650,12 @@ a:focus {
     align-items: stretch;
 }
 
-.slots-main__coin, .slots-main__info {
+.slots-main__drums-section {
+    display: flex;
+    width: 80%;
+}
+
+.slots-main__coin {
     width: 16%;
 }
 
@@ -684,80 +689,6 @@ a:focus {
     -webkit-transition: .15s ease-in-out;
     -o-transition: .15s ease-in-out;
     transition: .15s ease-in-out;
-}
-
-.slots-main__info {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row nowrap;
-    -ms-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    justify-items: stretch;
-    -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
-    -ms-flex-align: stretch;
-    align-items: stretch;
-}
-
-.slots-main__info-arrow {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: column nowrap;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    justify-items: stretch;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    position: relative;
-    width: 65%;
-    height: 70%;
-    margin-top: 1.25px;
-    background-color: Green;
-}
-
-.slots-main__info-arrow:after {
-    display: block;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    -webkit-transform: translate(-50%, 100%);
-    -ms-transform: translate(-50%, 100%);
-    transform: translate(-50%, 100%);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 6.5px 6px 0 6px;
-    border-color: Green transparent transparent transparent;
-}
-
-.slots-main__info-arrow-text {
-    display: block;
-    font-family: "Anton", sans-serif;
-    font-size: 18px;
-    color: #ffc911;
-}
-
-.slots-main__info-arrow-text + .slots-main__info-arrow-text {
-    margin-top: 1.5px;
 }
 
 .slots-main__drums {
@@ -1168,4 +1099,61 @@ a:focus {
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     transform: translate(0, 0);
+}
+
+/*Media queries for smaller screens and mobile*/
+
+@media only screen and (max-width: 980px) {
+    body {
+        background-size: initial;
+    }
+    .slots__top,
+    .slots__main {
+        width: 100%;
+    }
+    #container {
+        padding: 40px 30px;
+    }
+    .slots-main__drums-section-wrapper {
+        flex-direction: column;
+    }
+    .slots-main__drums-section {
+        width: 100%;
+    }
+    .slots-main__drums {
+        width: 75%;
+    }
+    .slots-main__info-section > div {
+        flex-direction: row;
+    }
+    .slots-main__info-section > div > label {
+        flex-direction: row;
+        padding: 0 10px;
+    }
+}
+
+
+@media only screen and (max-width: 980px) {
+    .slots__controls {
+        height: 24%;
+    }
+    .slots-controls__debug-mode__control > h1 {
+        display: none;
+    }
+}
+@media only screen and (max-width: 560px) {
+    .fixed-mode-options:not(.hidden) {
+        flex-direction: column;
+    }
+}
+
+
+@media only screen and (max-width: 420px) {
+    .slots-controls-grid {
+        flex-direction: column-reverse;
+        align-items: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+    }
 }
